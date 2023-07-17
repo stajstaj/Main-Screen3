@@ -235,7 +235,7 @@ input:checked ~ .bubble::after {
 }
 
 .todo-item .actions .edit {
-  background-color: #5bc0de;
+  background-color: #ffffff;
   color: #fff;
   border: none;
   padding: 0.25rem;
@@ -248,10 +248,10 @@ input:checked ~ .bubble::after {
   transition: background-color 0.2s ease-in-out;
 }
 .todo-item .actions .edit:hover {
-  background-color: #96d7f3;
+  background-color: #ffffff;
 }
 .todo-item .actions .delete {
-  background-color: #ec2329;
+  background-color: #ffffff;
   color: #fff;
   border: none;
   padding: 0.25rem;
@@ -263,8 +263,15 @@ input:checked ~ .bubble::after {
   justify-content: center;
   transition: background-color 0.2s ease-in-out;
 }
+
+.todo-item .actions .delete img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .todo-item .actions .delete:hover {
-  background-color:  #ff6a6f;
+  background-color:  #ffffff;
 }
 
 .todo-item.done .todo-content input {
@@ -299,8 +306,8 @@ input:checked ~ .bubble::after {
 
 .add-button {
   position: relative;
-  font-size: 1.5rem;
-  background: var(--create); /* Set the background color to the custom purple color */
+  font-size: 2rem;
+  background: #797EF6; /* Set the background color to the custom purple color */
   border: none;
   margin-top: 0.25rem;
   margin-right: 0.5rem;
@@ -314,7 +321,10 @@ input:checked ~ .bubble::after {
 
 .column {
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
+
 
 .column .add-button {
   position: absolute;
@@ -370,23 +380,13 @@ header {
   font-weight: 700;
 }
 
-.logout-button {
-  background-color: #888;
-  color: #FFF;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
 
 .logout-button:hover {
   opacity: 0.8;
 }
 
 .header {
-  background-color: #E0BBE4;
+  background: linear-gradient(to right, #4ADEDE, #1AA7EC);
   padding: 1rem;
   display: flex;
   align-items: center;
