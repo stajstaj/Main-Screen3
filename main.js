@@ -6,15 +6,25 @@ function showInput(column) {
   }
 
   // Create a new input field
-  const inputField = document.createElement('input');
+  const inputField = document.createElement('textarea');
   inputField.className = 'input-field';
-  inputField.type = 'text';
+
+  inputField.addEventListener('input', function () {
+    this.style.height = 'auto'; // Reset the height to auto to calculate the new height based on content
+    this.style.height = this.scrollHeight + 'px'; // Set the height to the calculated scroll height
+  });
 
   // Create the save button
   const saveButton = document.createElement('button');
-  saveButton.innerText = 'Save';
+  saveButton.innerText = 'Kaydet';
+  saveButton.className = 'save-button';
   saveButton.addEventListener('click', function () {
-    saveTodoItem(column, inputField.value);
+    const trimmedContent = inputField.value.trim();
+    if (trimmedContent === '') {
+      column.removeChild(todoItem);
+    } else {
+      saveTodoItem(column, trimmedContent);
+    }
     column.removeChild(inputField);
     column.removeChild(saveButton);
   });
@@ -25,10 +35,6 @@ function showInput(column) {
 }
 
 function saveTodoItem(column, content) {
-  if (content.trim() === '') {
-    return; // If content is empty, do not add the todo
-  }
-
   const todoItem = createTodoItem(content);
   const deleteButton = todoItem.querySelector('.delete');
   deleteButton.addEventListener('click', function () {
@@ -68,12 +74,18 @@ function createTodoItem(content) {
 
   const editButton = document.createElement('button');
   editButton.className = 'edit';
-  editButton.innerHTML = '<i class="far fa-edit"></i>';
+  const editIcon = document.createElement('img');
+  editIcon.src = 'edit.png';
+  editIcon.alt = 'Edit Icon';
+  editButton.appendChild(editIcon);
   actions.appendChild(editButton);
 
   const deleteButton = document.createElement('button');
   deleteButton.className = 'delete';
-  deleteButton.innerHTML = '<i class="far fa-trash-alt"></i>';
+  const deleteIcon = document.createElement('img');
+  deleteIcon.src = 'delete.png';
+  deleteIcon.alt = 'Delete Icon';
+  deleteButton.appendChild(deleteIcon);
   actions.appendChild(deleteButton);
 
   todoItem.appendChild(actions);
