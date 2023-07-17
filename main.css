@@ -1,0 +1,291 @@
+/* değişken tanımları */
+:root {
+  --create: #a450af;
+  --yapilacak: #3a82ee;
+  --yapilan: #4CAF50;
+  --sorunlu: #FF0800;
+  --light: #EEE;
+  --grey: #888;
+  --dark: #313154;
+  --danger: #FF0800;
+
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  --yapilacak-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --yapilan-glow: 0px 0px 4px rgba(76, 175, 80, 0.75);
+  --sorunlu-glow: 0px 0px 4px rgba(255, 8, 0, 1);
+}
+/* değişken tanımları */
+
+/* Resetler */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h3 {
+  color: var(--dark);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: var(--grey);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+  display: flex;
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.greeting .title,
+.greeting .title input {
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.create-todo input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: var(--dark);
+  background-color: #FFF;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.create-todo .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  padding: 0.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid var(--yapilacak);
+  box-shadow: var(--yapilacak-glow);
+}
+
+.bubble.yapilan {
+  border-color: var(--yapilan);
+  box-shadow: var(--yapilan-glow);
+}
+
+.bubble.sorunlu {
+  border-color: var(--sorunlu);
+  box-shadow: var(--sorunlu-glow);
+}
+
+.bubble::after {
+  content: '';
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--yapilacak);
+  box-shadow: var(--yapilacak-glow);
+  border-radius: 999px;
+  transition: 0.2s ease-in-out;
+}
+
+.bubble.yapilan::after {
+  background-color: var(--yapilan);
+  box-shadow: var(--yapilan-glow);
+}
+
+.bubble.sorunlu::after {
+  background-color: var(--sorunlu);
+  box-shadow: var(--sorunlu-glow);
+}
+
+input:checked ~ .bubble::after {
+  width: 13px;
+  height: 13px;
+  opacity: 0.5;
+}
+
+.todo-list .list {
+  margin: 1rem 0;
+  display: flex;
+  overflow-x: auto;
+  height: calc(100vh - 150px);
+}
+
+@media (max-width: 768px) {
+  .todo-list .list {
+    height: calc(100vh - 100px);
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-list .list {
+    height: calc(100vh - 50px);
+  }
+}
+
+.column-heading {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-line {
+  height: 2.5px;
+  background-color: #888888c5;
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.todo-list .column {
+  flex: 0 0 32.7%;
+  background-color: #FFF;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-right: 1rem;
+  min-width: 50px;
+  overflow-y: auto;
+}
+
+.todo-list .column:last-child {
+  margin-right: 0;
+}
+
+.todo-list .column h4 {
+  margin-bottom: 1rem;
+}
+
+.todo-list .column .todo-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 1rem;
+}
+
+.todo-item label {
+  flex: 1;
+  font-size: 20px;
+  margin-right: 1rem;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  color: #FFF;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+  opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+  margin-right: 0.5rem;
+  background-color: #3a82ee;
+}
+
+.todo-item .actions .delete {
+  margin-right: 0.5rem;
+  background-color: #FF0800;
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
+.todo-item .actions button i {
+  margin-right: 0.25rem;
+}
+
+.todo-item .actions .edit i {
+  color: #FFF;
+}
+
+.todo-item .actions .delete i {
+  color: #FFF;
+}
+
+.add-button {
+  position: relative;
+  font-size: 1.5rem;
+  background: var(--create); /* Set the background color to the custom purple color */
+  border: none;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+  color: var(--light);
+  cursor: pointer;
+  z-index: 1;
+  width: 40px; /* Adjust the width as desired */
+  height: 40px; /* Adjust the height as desired */
+  border-radius: 50%; /* Make the button circular */
+}
+
+.column {
+  position: relative;
+}
+
+.column .add-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.add-button:hover {
+  opacity: 0.75;
+}
