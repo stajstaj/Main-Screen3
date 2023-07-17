@@ -235,13 +235,36 @@ input:checked ~ .bubble::after {
 }
 
 .todo-item .actions .edit {
-  margin-right: 0.5rem;
-  background-color: #3a82ee;
+  background-color: #5bc0de;
+  color: #fff;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
 }
-
+.todo-item .actions .edit:hover {
+  background-color: #96d7f3;
+}
 .todo-item .actions .delete {
-  margin-right: 0.5rem;
-  background-color: #FF0800;
+  background-color: #ec2329;
+  color: #fff;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+.todo-item .actions .delete:hover {
+  background-color:  #ff6a6f;
 }
 
 .todo-item.done .todo-content input {
@@ -249,8 +272,21 @@ input:checked ~ .bubble::after {
   color: var(--grey);
 }
 
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 50%; /* Make the button circular */
+  color: #FFF;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+
 .todo-item .actions button i {
-  margin-right: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
 }
 
 .todo-item .actions .edit i {
@@ -267,12 +303,12 @@ input:checked ~ .bubble::after {
   background: var(--create); /* Set the background color to the custom purple color */
   border: none;
   margin-top: 0.25rem;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
   color: var(--light);
   cursor: pointer;
   z-index: 1;
-  width: 40px; /* Adjust the width as desired */
-  height: 40px; /* Adjust the height as desired */
+  width: 42px; /* Adjust the width as desired */
+  height: 42px; /* Adjust the height as desired */
   border-radius: 50%; /* Make the button circular */
 }
 
@@ -288,4 +324,100 @@ input:checked ~ .bubble::after {
 
 .add-button:hover {
   opacity: 0.75;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.save-button:hover {
+  opacity: 0.8;
+}
+
+.input-field {
+  width: 100%;
+  font-size: 18px;
+  padding: 8px 10px; /* Adjust the padding as needed */
+  resize: none;
+  min-height: 26px;
+  line-height: 20px; /* Adjust the line-height as needed */
+  box-sizing: border-box;
+  overflow-y: hidden;
+}
+/* Existing CSS styles */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--light);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.header-left h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logout-button {
+  background-color: #888;
+  color: #FFF;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+.logout-button:hover {
+  opacity: 0.8;
+}
+
+.header {
+  background-color: #E0BBE4;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: auto;    
+}
+
+.logo-container {
+  margin-right: 1rem; /* Adjust the margin as needed */
+}
+
+.logo-image {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
 }
