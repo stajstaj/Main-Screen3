@@ -20,35 +20,39 @@
         <div class="logo-container">
           <img src="logo.png" alt="Logo" class="logo-image">
         </div>
-        <h1>Name Surname</h1> <!-- Add the name and surname text here -->
+        <h1>Ad Soyad</h1> <!-- Add the name and surname text here -->
       </div>
       <div class="header-right">
-        <button class="logout-button" onclick="logout()">Logout</button> <!-- Add the logout button here -->
+        <button class="logout-button" onclick="logout()">Çıkış</button> <!-- Add the logout button here -->
       </div>
     </header>
     <section class="greeting"> </section>
     <section class="create-todo"> </section>
 
     <!-- Todo List -->
-    <section class="todo-list">
-      <div class="list" id="todo-list">
-        <div class="column" id="yapilacak-column">
-          <h4 class="column-heading">Yapılacak</h4>
-          <div class="column-line"></div>
-          <button class="add-button" onclick="showInput(this.parentNode)">+</button>
-        </div>
-        <div class="column" id="yapilan-column">
-          <h4 class="column-heading">Yapılan</h4>
-          <div class="column-line"></div>
-          <button class="add-button" onclick="showInput(this.parentNode)">+</button>
-        </div>
-        <div class="column" id="sorunlu-column">
-          <h4 class="column-heading">Sorunlu</h4>
-          <div class="column-line"></div>
-          <button class="add-button" onclick="showInput(this.parentNode)">+</button>
-        </div>
-      </div>
-    </section>
+<section class="todo-list">
+  <div class="list" id="todo-list">
+    <div class="column" id="yapilacak-column">
+      <div class="column-background"></div>
+      <h4 class="column-heading">Yapılacak</h4>
+      <div class="column-line"></div>
+      <button class="add-button" onclick="showInput(this.parentNode)">+</button>
+    </div>
+    <div class="column" id="yapilan-column">
+      <div class="column-background"></div>
+      <h4 class="column-heading">Yapılan</h4>
+      <div class="column-line"></div>
+      <button class="add-button" onclick="showInput(this.parentNode)">+</button>
+    </div>
+    <div class="column" id="sorunlu-column">
+      <div class="column-background"></div>
+      <h4 class="column-heading">Sorunlu</h4>
+      <div class="column-line"></div>
+      <button class="add-button" onclick="showInput(this.parentNode)">+</button>
+    </div>
+  </div>
+</section>
+
     <!-- End of Todo List -->
   </main>
   <!-- End of App Wrapper -->
