@@ -1,11 +1,10 @@
 function showInput(column) {
-  // Remove any existing input fields in the same column
   const existingInput = column.querySelector('.input-field');
   if (existingInput) {
-    return; // Input field already exists in the column, return
+    return; // If there is already an input field, do nothing
   }
 
-  // Create a new input field
+  // yeni input field createlendi
   const inputField = document.createElement('textarea');
   inputField.className = 'input-field';
 
@@ -14,7 +13,20 @@ function showInput(column) {
     this.style.height = this.scrollHeight + 'px'; // Set the height to the calculated scroll height
   });
 
-  // Create the save button
+  // input field boşsa esc ile silinir
+  document.addEventListener('keydown', function (event) {
+    const inputField = document.querySelector('.input-field');
+    const saveButton = document.querySelector('.save-button');
+    if (event.key === 'Escape' && inputField && inputField.value.trim() === '') {
+      const column = inputField.parentNode;
+      column.removeChild(inputField);
+      if (saveButton) {
+        column.removeChild(saveButton);
+      }
+    }
+  });
+
+  // save butonu createlendi
   const saveButton = document.createElement('button');
   saveButton.innerText = 'Kaydet';
   saveButton.className = 'save-button';
@@ -39,22 +51,31 @@ function saveTodoItem(column, content) {
   const deleteButton = todoItem.querySelector('.delete');
   deleteButton.addEventListener('click', function () {
     column.removeChild(todoItem);
+    editsaveButton.style.display = 'none';
   });
+
+  const editsaveButton = document.createElement('button'); // Create the save button
+  editsaveButton.innerText = 'Düzenlemeyi Kaydet';
+  editsaveButton.className = 'editsave-button';
+  editsaveButton.style.display = 'none';
+  editsaveButton.addEventListener('click', function () {
+    const trimmedContent = label.innerText.trim();
+    editsaveButton.style.display = 'none';
+    if (trimmedContent === '') {
+      column.removeChild(todoItem);
+    } else {
+      label.contentEditable = false;
+    }
+  }); 
 
   const editButton = todoItem.querySelector('.edit');
   const label = todoItem.querySelector('label');
+  // edit butonu işlev
   editButton.addEventListener('click', function () {
+    column.appendChild(editsaveButton);
     label.contentEditable = true;
     label.focus();
-    saveButton.style.display = 'inline-block';
-  });
-
-  const saveButton = document.createElement('button'); // Create the save button
-  saveButton.innerText = 'Save';
-  saveButton.style.display = 'none';
-  saveButton.addEventListener('click', function () {
-    label.contentEditable = false;
-    saveButton.style.display = 'none';
+    editsaveButton.style.display = 'inline-block';
   });
 
   // Add the todo item to the column
