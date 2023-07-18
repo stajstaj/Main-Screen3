@@ -51,102 +51,7 @@ h4 {
   margin-bottom: 0.5rem;
 }
 
-.greeting .title {
-  display: flex;
-}
 
-.greeting .title input {
-  margin-left: 0.5rem;
-  flex: 1 1 0%;
-  min-width: 0;
-}
-
-.greeting .title,
-.greeting .title input {
-  color: var(--dark);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.create-todo input[type="text"] {
-  display: block;
-  width: 100%;
-  font-size: 1.125rem;
-  padding: 1rem 1.5rem;
-  color: var(--dark);
-  background-color: #FFF;
-  border-radius: 0.5rem;
-  box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
-}
-
-.create-todo .options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.create-todo .options label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #FFF;
-  padding: 0.5rem;
-  box-shadow: var(--shadow);
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.bubble {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  border: 2px solid var(--yapilacak);
-  box-shadow: var(--yapilacak-glow);
-}
-
-.bubble.yapilan {
-  border-color: var(--yapilan);
-  box-shadow: var(--yapilan-glow);
-}
-
-.bubble.sorunlu {
-  border-color: var(--sorunlu);
-  box-shadow: var(--sorunlu-glow);
-}
-
-.bubble::after {
-  content: '';
-  display: block;
-  opacity: 0;
-  width: 0px;
-  height: 0px;
-  background-color: var(--yapilacak);
-  box-shadow: var(--yapilacak-glow);
-  border-radius: 999px;
-  transition: 0.2s ease-in-out;
-}
-
-.bubble.yapilan::after {
-  background-color: var(--yapilan);
-  box-shadow: var(--yapilan-glow);
-}
-
-.bubble.sorunlu::after {
-  background-color: var(--sorunlu);
-  box-shadow: var(--sorunlu-glow);
-}
-
-input:checked ~ .bubble::after {
-  width: 13px;
-  height: 13px;
-  opacity: 0.5;
-}
 
 .todo-list .list {
   margin: 1rem 0;
@@ -282,7 +187,7 @@ input:checked ~ .bubble::after {
 .todo-item .actions button {
   display: block;
   padding: 0.5rem;
-  border-radius: 50%; /* Make the button circular */
+  border-radius: 50%;
   color: #FFF;
   cursor: pointer;
   transition: 0.2s ease-in-out;
@@ -307,16 +212,16 @@ input:checked ~ .bubble::after {
 .add-button {
   position: relative;
   font-size: 2rem;
-  background: #797EF6; /* Set the background color to the custom purple color */
+  background: #797EF6; 
   border: none;
   margin-top: 0.25rem;
   margin-right: 0.5rem;
   color: var(--light);
   cursor: pointer;
   z-index: 1;
-  width: 42px; /* Adjust the width as desired */
-  height: 42px; /* Adjust the height as desired */
-  border-radius: 50%; /* Make the button circular */
+  width: 42px; 
+  height: 42px; 
+  border-radius: 50%; 
 }
 
 .column {
@@ -351,17 +256,31 @@ input:checked ~ .bubble::after {
   opacity: 0.8;
 }
 
+.editsave-button {
+  background-color: #f9d342;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.editsave-button:hover {
+  opacity: 0.8;
+}
+
 .input-field {
   width: 100%;
   font-size: 18px;
-  padding: 8px 10px; /* Adjust the padding as needed */
+  padding: 8px 10px;
   resize: none;
   min-height: 26px;
-  line-height: 20px; /* Adjust the line-height as needed */
+  line-height: 20px; 
   box-sizing: border-box;
   overflow-y: hidden;
 }
-/* Existing CSS styles */
 
 header {
   display: flex;
@@ -380,6 +299,15 @@ header {
   font-weight: 700;
 }
 
+.header-left input[name="daterange"] {
+  margin-left: 1.5rem; 
+  font-size: 1rem; 
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #4ADEDE;
+  box-shadow: var(--shadow);
+}
 
 .logout-button:hover {
   opacity: 0.8;
@@ -414,10 +342,10 @@ header {
 }
 
 .logo-container {
-  margin-right: 1rem; /* Adjust the margin as needed */
+  margin-right: 1rem; 
 }
 
 .logo-image {
-  width: 50px; /* Adjust the width as needed */
-  height: 50px; /* Adjust the height as needed */
+  width: 50px; 
+  height: 50px; 
 }
