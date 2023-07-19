@@ -8,6 +8,14 @@ function showInput(column) {
   const inputField = document.createElement('textarea');
   inputField.className = 'input-field';
 
+  // Add the input field and save button to the top of the column
+  const firstTodoItem = column.querySelector('.todo-item');
+  if (firstTodoItem) {
+    column.insertBefore(inputField, firstTodoItem);
+  } else {
+    column.appendChild(inputField);
+  }
+
   inputField.addEventListener('input', function () {
     this.style.height = 'auto'; // Reset the height to auto to calculate the new height based on content
     this.style.height = this.scrollHeight + 'px'; // Set the height to the calculated scroll height
@@ -41,9 +49,15 @@ function showInput(column) {
     column.removeChild(saveButton);
   });
 
-  // Add the input field and save button to the column
-  column.appendChild(inputField);
-  column.appendChild(saveButton);
+  // Add the save button to the top of the column
+  if (firstTodoItem) {
+    column.insertBefore(saveButton, firstTodoItem);
+  } else {
+    column.appendChild(saveButton);
+  }
+
+  // Focus on the input field after it's created
+  inputField.focus();
 }
 
 function saveTodoItem(column, content) {
@@ -66,7 +80,7 @@ function saveTodoItem(column, content) {
     } else {
       label.contentEditable = false;
     }
-  }); 
+  });
 
   const editButton = todoItem.querySelector('.edit');
   const label = todoItem.querySelector('label');
@@ -78,8 +92,13 @@ function saveTodoItem(column, content) {
     editsaveButton.style.display = 'inline-block';
   });
 
-  // Add the todo item to the column
-  column.insertBefore(todoItem, column.lastChild.previousSibling);
+  // Add the todo item to the column at the top
+  const firstTodoItem = column.querySelector('.todo-item');
+  if (firstTodoItem) {
+    column.insertBefore(todoItem, firstTodoItem);
+  } else {
+    column.appendChild(todoItem);
+  }
 }
 
 function createTodoItem(content) {
