@@ -21,7 +21,6 @@
 </head>
 
 <body>
-  <!-- App Wrapper -->
   <main class="app">
     <header class="header">
       <div class="header-left">
@@ -29,18 +28,25 @@
           <img src="logo.png" alt="Logo" class="logo-image">
         </div>
         <h1>Ad Soyad</h1>
-        <!-- Add the name and surname text here -->
-        <input type="text" name="daterange" value="17/07/2023 - 23/07/2023" />
-        <script>
-          $(function() {
-            moment.updateLocale('en', {
-              week: { dow: 1 }
-            });
+        <input type="text" name="daterange" />
 
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const inputElement = document.querySelector('input[name="daterange"]');
+        
+            // güncel tarihin alınması
+            const currentDate = moment();
+            // haftanın başlangıç ve bitişinin hesaplanması
+            const startDate = currentDate.clone().startOf('isoWeek').format("DD/MM/YYYY");
+            const endDate = currentDate.clone().endOf('isoWeek').format("DD/MM/YYYY");
+            inputElement.value = `${startDate} - ${endDate}`;
+        
+            // takvimin yeni tarih ile updatelenmesi
             $('input[name="daterange"]').daterangepicker({
               opens: 'left',
               locale: {
-                format: 'DD/MM/YYYY', // Set the date format to DD/MM/YYYY
+                format: 'DD/MM/YYYY', 
                 applyLabel: 'Apply',
                 cancelLabel: 'Cancel',
                 daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
@@ -62,33 +68,33 @@
               }
             }, function(start, end, label) {
               console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-              // You can do whatever you want with the selected dates here
             });
           });
         </script>
+
       </div>
       <div class="header-right">
         <button class="logout-button" onclick="logout()">Çıkış</button>
-        <!-- Add the logout button here -->
+        <!-- logout butonu -->
       </div>
     </header>
     
     <!-- Todo List -->
     <section class="todo-list">
       <div class="list" id="todo-list">
-        <div class="column" id="yapilacak-column">
+        <div class="column" id="yapilacak-column" value="1">
           <div class="column-background"></div>
           <h4 class="column-heading">Yapılacak</h4>
           <div class="column-line"></div>
           <button class="add-button" onclick="showInput(this.parentNode)">+</button>
         </div>
-        <div class="column" id="yapilan-column">
+        <div class="column" id="yapilan-column" value="2">
           <div class="column-background"></div>
           <h4 class="column-heading">Yapılan</h4>
           <div class="column-line"></div>
           <button class="add-button" onclick="showInput(this.parentNode)">+</button>
         </div>
-        <div class="column" id="sorunlu-column">
+        <div class="column" id="sorunlu-column" value="3">
           <div class="column-background"></div>
           <h4 class="column-heading">Sorunlu</h4>
           <div class="column-line"></div>
