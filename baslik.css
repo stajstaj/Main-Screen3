@@ -1,0 +1,14 @@
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: default;
+  transition: text-shadow 0.2s ease-in-out;
+}
