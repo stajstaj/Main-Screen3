@@ -24,10 +24,41 @@
   box-sizing: border-box;
   font-family: 'Fira Sans', sans-serif;
 }
-
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: default;
+  transition: text-shadow 0.2s ease-in-out;
+}
+.logo-image {
+  width: auto;
+  height: 50px;
+  margin-left: 10px;
+}
 body {
   background: var(--light);
   color: var(--dark);
+}
+
+body .copyright {
+  position: fixed;
+  bottom: 5px; /* Adjust the bottom position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.37);
+  margin-bottom: 6px;
+  text-align: center;
+  filter: brightness(100%);
+  font-size: 10px;
 }
 
 section {
@@ -152,6 +183,7 @@ h4 {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease-in-out;
+  margin-left: -10px;
 }
 .todo-item .actions .edit:hover {
   background-color: #ffffff;
@@ -282,7 +314,11 @@ h4 {
   box-sizing: border-box;
   overflow-y: hidden;
 }
-
+.app {
+  /* Your styles for the main content */
+  position: relative; /* Ensure proper z-indexing */
+  z-index: 2; /* Ensure the main content is above the header and background image */
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -292,7 +328,7 @@ header {
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 1;
 }
 
 .header-left h1 {
